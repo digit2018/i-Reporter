@@ -1,0 +1,66 @@
+header{
+    left: 0;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    background-color: rgb(37, 96, 151);
+    border-bottom: 3px solid white;
+}
+header h1{
+    color: white;
+}
+header a{
+    text-decoration: none;
+    float: right;
+    color: white;
+    margin: 0.3em;
+    border-right: 1px solid white;
+    padding: 0.3em;
+}
+.content{
+    margin: 15%;
+}
+.letterI{
+    color: white;
+}
+.form-content h1{
+    text-align: center;
+    color: white;
+}
+.form-content{
+    background-color: rgb(37, 96, 151);
+    border: 1px solid rgb(37, 96, 151);
+    border-radius: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2%;
+    width: 60%;
+}
+.form-content input{
+    border: 0px;
+    border-radius: 2em;
+    display: block;
+    width: 100%;
+    padding: 2%;
+}
+.login-text{
+    text-align: center;
+    color: white;
+}
+.login-text a{
+    text-decoration: none;
+    color: white;
+}
+.form-content a{
+    text-decoration: none;
+}
+footer{
+    left: 0;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 1%;
+}
+
