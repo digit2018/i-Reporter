@@ -34,8 +34,8 @@ class  Intervention(Incident):
     """docstring for  RedFlag"""
     def __init__(self):
         Incident.__init__(self)
-        self.internention_incident_type = "intervention"
-        
+
+        self.intervention_incident_type = "intervention"
 
 incidents = []    
         
