@@ -116,7 +116,7 @@ body{
 }
 
 .delete input{
-    background: white;
+    background: red;
     color: white;
 }
 
@@ -226,3 +226,4 @@ footer{
       text-align: left;
     }
   }
+
