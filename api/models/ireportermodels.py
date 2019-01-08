@@ -13,6 +13,7 @@ class User:
         self.password = password
         self.registered = registered
 
+
 users = []
 
 class Incident:
@@ -28,3 +29,4 @@ class Incident:
         self.images = images
 
 incidents = []    
+

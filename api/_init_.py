@@ -4,3 +4,4 @@ from python import pytest
 
 app = Flask(__name__, instance_relative_config=True)
 app.register_blueprint(ireporterViews.bp)
+
