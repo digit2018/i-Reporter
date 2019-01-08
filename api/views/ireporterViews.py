@@ -32,3 +32,4 @@ def add_comment_to_specific_redflag_record():
 
 def delete_specific_redflag_record(red_flag_id):
     return deleteId(red_flag_id, incidents)
+
