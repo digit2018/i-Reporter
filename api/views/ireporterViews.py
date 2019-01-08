@@ -1,7 +1,5 @@
 from flask import Blueprint
-
 from api.controllers.ireportercontrollers import addUser
-
 
 bp = Blueprint("ireporterViews", __name__, url_prefix="/api/v1")
 
