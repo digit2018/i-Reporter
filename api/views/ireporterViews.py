@@ -1,5 +1,4 @@
 from flask import Blueprint
-
 from api.controllers.ireportercontrollers import addUser
 
 
