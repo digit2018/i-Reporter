@@ -1,4 +1,4 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/0974f0de8f26673225d06b55002b53bb62197420/maintainability)](https://codeclimate.com/github/digit2018/i-Reporter/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/6e8511dbcf29b1cee00a/maintainability)](https://codeclimate.com/github/digit2018/i-Reporter/maintainability)
 
 [![Build Status](https://travis-ci.org/digit2018/i-Reporter.svg?branch=develop)](https://travis-ci.org/digit2018/i-Reporter)
 
