@@ -116,6 +116,7 @@ body{
 }
 
 .delete input{
+
     background: white;
     color: white;
 }
@@ -168,7 +169,7 @@ footer{
     display: none;
 }
 @media only screen and (max-width: 600px) {
-    
+
     .content{
         padding-top: 20%;
     }
@@ -202,11 +203,12 @@ footer{
     float: right;
     display: block;
   }
-  
+
   footer{
     margin-top: 20%;
 }
-  
+
+
 }
 
 @media only screen and (max-width: 600px) {

@@ -1,33 +1,24 @@
 from flask import request, Response, json, jsonify
+
 from api.models.ireportermodels import User, users, Incident, incidents, RedFlag, Intervention
 
 import uuid
-import datetime
 
 def addUser():
     request_data = request.get_json()
-    
     user = User()
-    user.first_name = request_data["firstName"]
-    user.Last_name = request_data["lastName"]
-    user.other_names = request_data["otherNames"]
+    user.firstName = request_data["firstName"]
+    user.LastName = request_data["lastName"]
+    user.otherNames = request_data["otherNames"]
     user.email = request_data["email"]
     user.password = request_data["password"]
-    user.registered = datetime.datetime.today()
-
-
-    def addUserId():
-        if len(users) == 0: 
-            user_id = len(users)+1 
-        else: 
-            user_id = users[-1]["userId"]+1
-        return user_id
+    user.registered = request_data["registered"]
 
     usersData = {
-        "userId": addUserId(),
-        "firstName": user.first_name,
-        "lastName": user.last_name,
-        "otherNames": user.other_names,
+        "userId": len(users)+1,
+        "firstName": user.firstName,
+        "lastName": user.lastName,
+        "otherNames": user.otherNames,
         "email": user.email,
         "password": user.password,
         "registered": user.registered,
@@ -41,69 +32,32 @@ def addUser():
                     "message":"user created successully"
                     })
 
-inc = Incident()
-
 def addIncident():
     request_data = request.get_json()
-    
-    inc.latitude = request_data["latitude"]
-    inc.longitude = request_data["longitude"]
+    inc = Incident()
+    inc.createdOn = request_data["createdOn"]
+    inc.createdBy = request_data["createdBy"]
+    inc.incidentType = request_data["incidentType"]
+    inc.location = request_data["location"]
     inc.images = request_data["images"]
 
-def add_incident_id():
-    if len(incidents) == 0: 
-        incident_id = len(incidents)+1 
-    else: 
-        incident_id = incidents[-1]["incidentId"]+1
-    return incident_id
-        
+    incidentData = {
+        "incidentId": len(incidents) + 1,
+        "cretedOn": inc.createdOn,
+        "createdBy": inc.createdBy,
+        "incidentType": inc.incidentType,
+        "location": inc.location,
+        "image": inc.images.split(",")
 
-def add_red_flag():
-    red = RedFlag()
-    addIncident()
-    crtd = request.headers["userId"]
+    }
 
-    incident_data = {
-            "incidentId": add_incident_id(),
-            "createdOn": datetime.datetime.today(),
-            "createdBy": crtd,
-            "incidentType": red.red_flag_incident_type,
-            "latitude": inc.latitude,
-            "longitude": inc.longitude,
-            "image": inc.images.split(","),
-            "status": inc.status
-            }
-    incidents.append(incident_data)
+    incidents.append(incidentData)
     return jsonify({
-            "data":incidents,
-            "status":201,
-            "id":incident_data['incidentId'],
-            "message":"Incident created successully"
-            })
-
-def add_intervention():
-    intv = Intervention()
-    addIncident()
-    crtd = request.headers["userId"]
-
-    incident_data = {
-            "incidentId": add_incident_id(),
-            "createdOn": datetime.datetime.today(),
-            "createdBy": crtd,
-            "incidentType": intv.internention_incident_type,
-            "latitude": inc.latitude,
-            "longitude": inc.longitude,
-            "image": inc.images.split(","),
-            "status": inc.status
-            }
-    incidents.append(incident_data)
-    return jsonify({
-            "data":incidents,
-            "status":201,
-            "id":incident_data['incidentId'],
-            "message":"Incident created successully"
-            })
-
+                    "data":incidents,
+                    "status":201,
+                    "id":incidentData['incidentId'],
+                    "message":"Incident created successully"
+                    })
 
 def getAllIncidents():
     return jsonify({
@@ -129,10 +83,6 @@ def deleteId(search_item, list_of_Items):
                     "data":incidents,
                     "message":"red-flag record deleted successfully"
                     })
-def edit_incident(search_item, list_of_Items):
-    item = [item for item in list_of_Items if item['incidentId'] == search_item]
-    list_of_Items[search_item-1]['latitude'] = request.json.get('latitude', list_of_Items[0]['latitude'])
-    list_of_Items[search_item-1]['longitude'] = request.json.get('longitude', list_of_Items[0]['longitude'])
 
     return jsonify({
                     "status":200,
@@ -140,4 +90,5 @@ def edit_incident(search_item, list_of_Items):
                     "data":incidents,
                     "message":"red-flag location updated successfully"
                     })
+
 

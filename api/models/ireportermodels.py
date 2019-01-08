@@ -1,41 +1,75 @@
-class User:
 
-    def __init__(self, user_id=int, first_name="", last_name="", 
-                other_names="", user_name="", email="", password="", 
-                registered="", isAdmin="False"):
+from flask import request, Response, json, jsonify
+from api.models.ireportermodels import User, users, Incident, incidents
+import uuid
 
-        self.user_id = user_id
-        self.first_name = first_name
-        self.last_name = last_name
-        self.other_names = other_names
-        self.user_name = user_name
-        self.email = email
-        self.password = password
+def addUser():
+    request_data = request.get_json()
+    user = User()
+    user.firstName = request_data["firstName"]
+    user.LastName = request_data["lastName"]
+    user.otherNames = request_data["otherNames"]
+    user.email = request_data["email"]
+    user.password = request_data["password"]
+    user.registered = request_data["registered"]
 
-users = []
+    usersData = {
+        "userId": len(users)+1,
+        "firstName": user.firstName,
+        "lastName": user.lastName,
+        "otherNames": user.otherNames,
+        "email": user.email,
+        "password": user.password,
+        "registered": user.registered,
+        "public_userId": str(uuid.uuid4())
+        }
+    users.append(usersData)
+    return jsonify({
+                    "data":users,
+                    "status":201,
+                    "id":usersData['userId'],
+                    "message":"user created successully"
+                    })
 
-class Incident:
-    def __init__(self, created_by="",
-                latitude="", longitude="", images=[], 
-                comment=""):
+def addIncident():
+    request_data = request.get_json()
+    inc = Incident()
+    inc.createdOn = request_data["createdOn"]
+    inc.createdBy = request_data["createdBy"]
+    inc.incidentType = request_data["incidentType"]
+    inc.location = request_data["location"]
+    inc.images = request_data["images"]
 
-        self.latitude = latitude
-        self.longitude = longitude
-        self.status = "draft"
-        self.images = images
+    incidentData = {
+        "incidentId": len(incidents) + 1,
+        "cretedOn": inc.createdOn,
+        "createdBy": inc.createdBy,
+        "incidentType": inc.incidentType,
+        "location": inc.location,
+        "image": inc.images.split(",")
 
-class  RedFlag(Incident):
-    """docstring for  RedFlag"""
-    def __init__(self):
-        Incident.__init__(self)
-        self.red_flag_incident_type = "red-flag"
+    }
 
-class  Intervention(Incident):
-    """docstring for  RedFlag"""
-    def __init__(self):
-        Incident.__init__(self)
-        self.intervention_incident_type = "intervention"
-        
+    incidents.append(incidentData)
+    return jsonify({
+                    "data":incidents,
+                    "status":201,
+                    "id":incidentData['incidentId'],
+                    "message":"Incident created successully"
+                    })
 
-incidents = []    
-        
+def getAllIncidents():
+    return jsonify({
+                    "status":201,
+                    "data":incidents
+                    })
+
+def searchId(search_item, list_of_Items):
+    search_list = []
+    for item in list_of_Items:
+        [search_list.append(item) for key in item if item[key] == search_item]
+    return jsonify({
+                    "status":201,
+                    "data":search_list
+                    })
+
