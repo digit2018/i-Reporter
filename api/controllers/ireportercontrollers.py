@@ -1,6 +1,6 @@
 from flask import request, Response, json, jsonify
 from api.models.ireportermodels import User, users, Incident, incidents, RedFlag, Intervention
-from python import pytest
+
 import uuid
 import datetime
 
@@ -140,3 +140,4 @@ def edit_incident(search_item, list_of_Items):
                     "data":incidents,
                     "message":"red-flag location updated successfully"
                     })
+
