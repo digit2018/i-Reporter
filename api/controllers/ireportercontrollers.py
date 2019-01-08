@@ -1,12 +1,12 @@
 from flask import request, Response, json, jsonify
-from api.models.ireportermodels import User, users
+
+from api.models.ireportermodels import User, users, Incident, incidents, RedFlag, Intervention
+
 import uuid
 
 def addUser():
-    user = User()
     request_data = request.get_json()
-
-
+    user = User()
     user.firstName = request_data["firstName"]
     user.LastName = request_data["lastName"]
     user.otherNames = request_data["otherNames"]
@@ -82,6 +82,13 @@ def deleteId(search_item, list_of_Items):
                     "id": search_item,
                     "data":incidents,
                     "message":"red-flag record deleted successfully"
+                    })
+
+    return jsonify({
+                    "status":200,
+                    "id": search_item,
+                    "data":incidents,
+                    "message":"red-flag location updated successfully"
                     })
 
 
