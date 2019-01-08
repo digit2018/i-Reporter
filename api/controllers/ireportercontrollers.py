@@ -6,6 +6,7 @@ def addUser():
     user = User()
     request_data = request.get_json()
 
+
     user.firstName = request_data["firstName"]
     user.LastName = request_data["lastName"]
     user.otherNames = request_data["otherNames"]
@@ -57,6 +58,7 @@ def addIncident():
                     "id":incidentData['incidentId'],
                     "message":"Incident created successully"
                     })
+
 def getAllIncidents():
     return jsonify({
                     "status":201,
