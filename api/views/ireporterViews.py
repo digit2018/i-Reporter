@@ -1,6 +1,6 @@
 from flask import Blueprint
 from api.controllers.ireportercontrollers import addUser, add_red_flag, add_intervention, getAllIncidents, searchId, incidents, deleteId, edit_incident, add_comment
-from python import pytest
+
 
 bp = Blueprint("ireporterViews", __name__, url_prefix="/api/v1")
 
