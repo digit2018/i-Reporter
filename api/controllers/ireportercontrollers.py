@@ -1,11 +1,11 @@
 from flask import request, Response, json, jsonify
-from api.models.ireportermodels import User, users, Incident, incidents
-from python import pytest
+from api.models.ireportermodels import User, users
 import uuid
 
 def addUser():
-    request_data = request.get_json()
     user = User()
+    request_data = request.get_json()
+
     user.firstName = request_data["firstName"]
     user.LastName = request_data["lastName"]
     user.otherNames = request_data["otherNames"]
@@ -57,7 +57,6 @@ def addIncident():
                     "id":incidentData['incidentId'],
                     "message":"Incident created successully"
                     })
-
 def getAllIncidents():
     return jsonify({
                     "status":201,
@@ -82,3 +81,4 @@ def deleteId(search_item, list_of_Items):
                     "data":incidents,
                     "message":"red-flag record deleted successfully"
                     })
+
