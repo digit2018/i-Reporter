@@ -18,8 +18,6 @@ def addUser():
         "firstName": user.firstName,
         "lastName": user.lastName,
         "otherNames": user.otherNames,
-
-
         "email": user.email,
         "password": user.password,
         "registered": user.registered,
@@ -31,7 +29,6 @@ def addUser():
                     "status":201,
                     "id":usersData['userId'],
                     "message":"user created successully"
-
                     })
 
 def addIncident():
@@ -60,5 +57,28 @@ def addIncident():
                     "id":incidentData['incidentId'],
                     "message":"Incident created successully"
                     })
+def getAllIncidents():
+    return jsonify({
+                    "status":201,
+                    "data":incidents
+                    })
 
+def searchId(search_item, list_of_Items):
+    search_list = []
+    for item in list_of_Items:
+        [search_list.append(item) for key in item if item[key] == search_item]
+    return jsonify({
+                    "status":201,
+                    "data":search_list
+                    })
+
+def deleteId(search_item, list_of_Items):
+    for item in list_of_Items:
+        [list_of_Items.remove(item) for key in item if item[key] == search_item]
+    return jsonify({
+                    "status":200,
+                    "id": search_item,
+                    "data":incidents,
+                    "message":"red-flag record deleted successfully"
+                    })
 

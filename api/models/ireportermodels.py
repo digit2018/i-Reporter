@@ -28,6 +28,6 @@ class Incident:
         self.status = status
         self.images = images
 
-incidents = []    
 
+incidents = []    
 
