@@ -1,6 +1,6 @@
 from flask import Blueprint
 from api.controllers.ireportercontrollers import addUser, add_red_flag, add_intervention, getAllIncidents, searchId, incidents, deleteId, edit_incident
-from python import pytest
+
 
 bp = Blueprint("ireporterViews", __name__, url_prefix="/api/v1")
 
@@ -35,3 +35,4 @@ def add_comment_to_specific_redflag_record():
 @bp.route("/incidents/<int:incid_id>", methods=["DELETE"])
 def delete_specific_redflag_record(incid_id):
     return deleteId(incid_id, incidents)
+
