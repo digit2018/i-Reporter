@@ -38,3 +38,4 @@ def delete_specific_incident_record(incid_id):
 @bp.route("/red-flags/<int:incid_id>/status", methods=["PATCH"])
 def change_red_flag_status(incid_id):
     return incdnt.chng_status(incid_id)
+

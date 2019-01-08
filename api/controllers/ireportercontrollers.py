@@ -50,3 +50,4 @@ class UserController:
             "message": "user created successfully", 
             "data": user.make_json()
         }), 201
+
