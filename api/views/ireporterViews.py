@@ -1,5 +1,7 @@
 from flask import Blueprint
+
 from api.controllers.ireportercontrollers import addUser
+
 
 bp = Blueprint("ireporterViews", __name__, url_prefix="/api/v1")
 
@@ -8,6 +10,7 @@ def createUser():
     return addUser()
 
 @bp.route("/red-flags", methods=["POST"])
+
 def createIncident():
     pass
 
@@ -30,3 +33,5 @@ def add_comment_to_specific_redflag_record():
 @bp.route("/red-flags/<int:red_flag_id>", methods=["DELETE"])
 def delete_specific_redflag_record():
     pass
+
+

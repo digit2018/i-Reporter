@@ -1,4 +1,5 @@
 from flask import request, Response, json, jsonify
+
 from api.models.ireportermodels import User, users
 import uuid
 
@@ -17,6 +18,7 @@ def addUser():
         "firstName": user.firstName,
         "lastName": user.lastName,
         "otherNames": user.otherNames,
+
         "email": user.email,
         "password": user.password,
         "registered": user.registered,
@@ -28,4 +30,4 @@ def addUser():
                     "status":201,
                     "id":usersData['userId'],
                     "message":"user created successully"
-                    })
+
