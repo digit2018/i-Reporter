@@ -1,11 +1,12 @@
 from flask import request, Response, json, jsonify
-from api.models.ireportermodels import User, users, Incident, incidents
-from python import pytest
+from api.models.ireportermodels import User, users
 import uuid
 
 def addUser():
-    request_data = request.get_json()
     user = User()
+    request_data = request.get_json()
+
+
     user.firstName = request_data["firstName"]
     user.LastName = request_data["lastName"]
     user.otherNames = request_data["otherNames"]
@@ -63,3 +64,24 @@ def getAllIncidents():
                     "status":201,
                     "data":incidents
                     })
+
+def searchId(search_item, list_of_Items):
+    search_list = []
+    for item in list_of_Items:
+        [search_list.append(item) for key in item if item[key] == search_item]
+    return jsonify({
+                    "status":201,
+                    "data":search_list
+                    })
+
+def deleteId(search_item, list_of_Items):
+    for item in list_of_Items:
+        [list_of_Items.remove(item) for key in item if item[key] == search_item]
+    return jsonify({
+                    "status":200,
+                    "id": search_item,
+                    "data":incidents,
+                    "message":"red-flag record deleted successfully"
+                    })
+
+
