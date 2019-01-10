@@ -10,7 +10,7 @@ class TestEndpoints(pytest.TestCase):
 
     def test_create_incident(self):
         incident = Incident(BaseIncident(['images','image'], ['videos','videos'], "25-nov-2018", 2, "comment"),
-            1, "red-flag", {"latitude":"120.00","longitude":"120.00"}, "draft")
+            1, "red-flag", {"latitude":"130.00","longitude":"120.00"}, "draft")
         incident_data = incident.incident_json()
         response = self.test_client.post(
             'api/v1/red-flags',
