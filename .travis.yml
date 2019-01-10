@@ -1,7 +1,7 @@
 # language to use in travis containers
 language: python
 python:
-  - "3.7.1.0" 
+  - "3.7.1" 
 # command to install dependencies
 install:
   - pip install -r requirements.txt
@@ -9,7 +9,7 @@ install:
   - pip install coverage
 # command to run tests
 script: 
-  - pytest --cov--disable--warnings
-after_success:
-- coveralls
+  - nosetests --with-coverage
+#after_success:
+#- coveralls
   
