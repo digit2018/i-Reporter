@@ -3,6 +3,8 @@ language: python
 python:
   - "3.6.0-dev"  # 3.6.0 development branch
   - "3.7.1-dev"  # 3.7.1 development branch
+   dist: xenial
+   sudo: true
 # command to install dependencies
 install:
   - pip install -r requirements.txt
@@ -11,7 +13,7 @@ install:
   
 # command to run tests
 script: 
-  - nosetest --with-coverage
+  - pytest --with-coverage
 #after_success:
 #- coveralls
   
