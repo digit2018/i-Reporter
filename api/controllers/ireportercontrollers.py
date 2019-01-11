@@ -50,3 +50,5 @@ class UserController:
             "data": user.make_json()
         }), 201
 
+
+    
