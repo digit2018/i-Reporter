@@ -1,8 +1,8 @@
 # language to use in travis containers
 language: python
 python:
-  -"3.6.0-dev"
-  -"3.7.1-dev" 
+  "3.6.0-dev"
+  "3.7.1-dev" 
 # command to install dependencies
 install:
   - pip install -r requirements.txt
