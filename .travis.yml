@@ -1,8 +1,8 @@
 # language to use in travis containers
 language: python
 python:
-  - "3.6.6-dev"  # 3.6.0 development branch
-  - "3.7.1-dev"  # 3.7.1 development branch
+  - "3.6" 
+  - "3.7"  
 # command to install dependencies
 install:
   - pip install -r requirements.txt
@@ -11,7 +11,8 @@ install:
   
 # command to run tests
 script: 
-  - pytest --with-coverage
-#after_success:
-#- coveralls
-  
+  - pytest --cov --disable-warnings
+sudo: required
+
+after_success:
+- coveralls
