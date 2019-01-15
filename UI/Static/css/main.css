@@ -163,6 +163,9 @@ footer{
     color: white;
     padding: 0.2%;
 }
+.status-publish {
+    margin-bottom: 0;
+}
 
 .header-content .icon {
     display: none;
