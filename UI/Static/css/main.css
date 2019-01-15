@@ -1,3 +1,6 @@
+/* Main Container */
+main { padding-bottom: 0; 
+}
 header{
     left: 0;
     top: 0;
@@ -161,25 +164,11 @@ footer{
     width: 100%;
     background-color: black;
     color: white;
-    padding: 0.2px;
+    padding: 0.2%;
 }
-.status-publish .post-content,
-}
-    padding-bottom: 0;
-}
-
-.status-publish {
-    margin-bottom: 0;
-}
-
-.header-content .icon {
-    display: none;
-}
-
  
-@media only screen and (max-width: 600px) {
-
-
+@media only screen and (max-width: 600px) 
+{
     .content{
         padding-top: 20%;
     }
