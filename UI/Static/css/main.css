@@ -155,7 +155,7 @@ item2 a{
     margin: 0.5%;
 }
 
-/*footer{
+footer{
     left: 0;
     bottom: 10%;
     width: 100%;
@@ -175,22 +175,8 @@ item2 a{
 .header-content .icon {
     display: none;
 }
-*/
- {
-        margin: 0;
-}
-html, body {
-        height: 100%;
-}
-.wrapper {
-        min-height: 100%;
-        margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
-}
-footer, .push {
-        height: 155px; /* '.push' must be the same height as 'footer' */
-}
 
-
+ 
 @media only screen and (max-width: 600px) {
 
 
