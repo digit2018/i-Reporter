@@ -161,11 +161,11 @@ footer{
     width: 100%;
     background-color: black;
     color: white;
-    padding: 0.2%;
+    padding: 0.2px;
 }
 .status-publish .post-content,
 }
-    padding-bottom: 0!important;
+    padding-bottom: 0;
 }
 
 .status-publish {
