@@ -163,6 +163,11 @@ footer{
     color: white;
     padding: 0.2%;
 }
+.status-publish .post-content,
+}
+    padding-bottom: 0!important;
+}
+
 .status-publish {
     margin-bottom: 0;
 }
