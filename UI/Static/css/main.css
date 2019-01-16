@@ -159,9 +159,9 @@ footer{
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: Grey;
-    /*color: white;*/
-    padding-bottom: 0;//
+    background-color: Black;
+    color: Black;
+   
 }
  
 @media only screen and (max-width: 600px) 
