@@ -1,9 +1,6 @@
-/* Main Container */
-main { padding-bottom: 0; 
-}
 header{
-    left: 0;
-    top: 0;
+    left: 3px;
+    top: 3px;
     position: fixed;
     width: 100%;
     background-color: rgb(37, 96, 151);
