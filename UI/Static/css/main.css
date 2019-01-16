@@ -44,7 +44,7 @@ body{
     border-radius: 2em;
     margin-left: auto;
     margin-right: auto;
-    padding: 0px;//
+    padding: 0.2px;//
     width: 60%;
 }
 
@@ -53,7 +53,7 @@ body{
     border-radius: 2em;
     display: block;
     width: 100%;
-   padding: 0px; 
+   padding: 0.2px; 
 }
 
 .login-text{
