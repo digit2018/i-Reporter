@@ -31,6 +31,9 @@ body{
 
 .letterI{
     color: white;
+    font-size: 10;
+    padding:0.5px;
+    
 }
 
 .form-content h1{
